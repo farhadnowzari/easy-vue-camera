@@ -1,28 +1,20 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id='app'>
+    <easy-camera output="blob" :overlay-mask="require('./assets/grid.png')" must-approve v-model="picture"></easy-camera>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import EasyCamera from './components/EasyCamera';
 export default {
+  data() {
+    return {
+      picture: null
+    }
+  },
   name: 'App',
   components: {
-    HelloWorld
+    EasyCamera
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

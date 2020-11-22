@@ -7,12 +7,18 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "core-js": "^3.6.5",
+    "@mdi/font": "^5.8.55",
+    "core-js": "^3.7.0",
+    "easy-js-camera": "D:\\Projects\\camera",
+    "uuid": "^8.3.1",
     "vue": "^2.6.11"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
+    "css-loader": "^5.0.1",
+    "sass": "^1.29.0",
+    "sass-loader": "^10.1.0",
     "vue-template-compiler": "^2.6.11"
   },
   "browserslist": [
