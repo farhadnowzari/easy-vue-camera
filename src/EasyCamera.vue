@@ -212,6 +212,13 @@ export default {
                     }
                 }
             }
+            .camera-snap {
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                width: 100%;
+                height: 100%;
+            }
             .camera-stack-controls {
                 margin: 0px auto;
                 width: 100%;
@@ -292,6 +299,7 @@ export default {
             display: none;
         }
         .camera-snap {
+            align-self: stretch;
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
