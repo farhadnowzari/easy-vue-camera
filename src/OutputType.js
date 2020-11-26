@@ -1,4 +1,4 @@
 export default {
-    base64: 'base64',
+    dataUrl: 'dataUrl',
     blob: 'blob'
 }
