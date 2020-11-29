@@ -14,6 +14,7 @@
         </template>
         </fullscreen-view-camera>
     <standard-view-camera 
+        @loading="(loading) => {this.$emit('loading', true)}"
         :overlay-mask="overlayMask"
         :visible-overlay="visibleOverlay"
         ref="standardCameraRef"
@@ -36,6 +37,10 @@ export default {
     computed: {
         isTouchScreen() {
             return DeviceUtils.isTouchScreen();
+        },
+        multiDevice() {
+            if(!this.refCameraComponent) return false;
+            return this.refCameraComponent.camera.devices.length > 1;
         },
         refCameraComponent() {
             return this.refFullscreenCamera ? this.refFullscreenCamera : this.refStandardCamera;
@@ -94,8 +99,7 @@ export default {
                         camera.start()
                             .finally(() => this.$emit('loading', false));
                     }
-                })
-                .finally(() => this.$emit('loading', false));
+                });
         },
         stop() {
             if(this.refCameraComponent === null) return;
@@ -106,6 +110,10 @@ export default {
             this.$emit('loading', true);
             this.refCameraComponent.switchCamera(false)
                 .finally(() => this.$emit('loading', false));
+        },
+        toggleMask() {
+            if(!this.refStandardCamera) return;
+            this.refStandardCamera.toggleMask();
         }
     },
     mounted() {

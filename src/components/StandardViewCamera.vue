@@ -1,7 +1,10 @@
 <template>
-    <div style="position: relative; width: 100%; height: 100;">
+    <div class="video-wrapper">
         <video :id="videoElementId" autoplay playsinline v-show="!picture"></video>
         <canvas :id="canvasElementId" v-show="picture"></canvas>
+        <div :class="{'visible-overlay': visibleOverlay}" class="overlay">
+            <img :src="overlayMask" v-if="visibleMask">
+        </div>
     </div>
 </template>
 
@@ -23,10 +26,6 @@ export default {
         }
     },
     methods: {
-        close() {
-            this.stop();
-            this.$emit('close');
-        },
         snapAsBlob() {
             if(!this.camera) {
                 console.error('Camera not found to take a picture');
@@ -95,18 +94,46 @@ export default {
                         }
                     })
             });
+        },
+        toggleMask() {
+            this.visibleMask = !this.visibleMask;
         }
     },
-    name: 'standard-view-camera'
+    name: 'standard-view-camera',
+    props: {
+        overlayMask: String,
+        visibleOverlay: Boolean
+    }
 }
 </script>
 <style lang="scss" scoped>
-video {
-    width: 100%;
-    height: auto;
-}
-canvas {
-    width: 100%;
-    height: auto;
+.video-wrapper {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    position: relative;
+    video {
+        width: 100%;
+        height: auto;
+    }
+    canvas {
+        width: 100%;
+        height: auto;
+    }
+    .overlay {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        max-width: 50%;
+        width: 100%;
+        display: flex;
+        &.visible-overlay {
+            box-shadow: 0px 0px 2000px 2000px rgba(0, 0, 0, .8);
+        }
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
 }
 </style>

@@ -2,10 +2,16 @@
 
 This vue component is powered by <a href="https://github.com/farhadnowzari/easy-js-camera">easy-js-camera</a> library.
 
+## How it works
+This component has two sub-components. One is called FullscreenViewCamera and the other is StandardViewCamera.
+* **FullscreenViewCamera:** This component provides a native app like look for the camera and the only part which is customizable is the `Header`. The picture below shows how it looks like.
+* **StandardViewCamera:** This component does not provide any UI actions and just renders the Video element along with a canvas to show the snapped picture in. *This component is controllable via reference*.
+
+
 ## Installation
 The package is available via npm.
 ```
-npm install easy-vue-camera
+npm install easy-js-camera easy-vue-camera
 ```
 After the installation is complete with the following code you can add the component.
 ```

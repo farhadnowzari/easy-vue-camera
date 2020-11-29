@@ -10,7 +10,7 @@
             </div>
             <div class="video-wrapper" v-show="!picture">
                 <video :id="videoElementId" autoplay playsinline></video>
-                <div class="overlay-mask" v-if="visibleOverlay">
+                <div :class="{'visible-overlay': visibleOverlay}" class="overlay-mask">
                     <img :src="overlayMask" v-if="visibleMask">
                 </div>
             </div>
@@ -224,7 +224,9 @@ export default {
                 width: 100%;
                 height: 100%;
                 margin-top: 10vh;
-                box-shadow: 0px 0px 2000px 2000px rgba(0, 0, 0, .8);
+                &.visible-overlay {
+                    box-shadow: 0px 0px 2000px 2000px rgba(0, 0, 0, .8);
+                }
                 img {
                     width: 100%;
                 }
