@@ -71,7 +71,7 @@ export default {
             if(this.output === OutputType.dataUrl) {
                 const picture = this.refCameraComponent.snapAsDataUrl();
                 this.stop();
-                if(!this.mustApprove) {
+                if(!this.mustApprove || !this.fullscreen) {
                     this.$emit('input', picture);
                 }
             } else {
@@ -79,7 +79,7 @@ export default {
                 this.refCameraComponent.snapAsBlob()
                     .then(picture => {
                         this.stop();
-                        if(!this.mustApprove) {
+                        if(!this.mustApprove || !this.fullscreen) {
                             this.$emit('input', picture);
                         }
                     }).finally(() => this.$emit('loading', false));
