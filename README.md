@@ -5,7 +5,7 @@ This vue component is powered by <a href="https://github.com/farhadnowzari/easy-
 ## How it works
 This component has two sub-components. One is called FullscreenViewCamera and the other is StandardViewCamera.
 * **FullscreenViewCamera:** This component provides a native app like look for the camera and the only part which is customizable is the `Header`. The picture below shows how it looks like. <br>
-![Fullscreen View](doc/easy_vue_fullscreen.jpg)
+![Fullscreen View](https://github.com/farhadnowzari/easy-vue-camera/blob/main/doc/easy_vue_camera_fullscreen.jpg?raw=true)
 * **StandardViewCamera:** This component does not provide any UI actions and just renders the Video element along with a canvas to show the snapped picture in. *This component is controllable via reference*.
 
 **Note:** If you enable the `auto-detect-mobile` property the `mother` component will automatically will decide which of the sub-components should be rendered. If this property is off you can toggle between the two, by toggling `fullscreen` property.
