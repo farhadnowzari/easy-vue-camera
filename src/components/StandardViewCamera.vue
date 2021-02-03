@@ -135,16 +135,15 @@ export default {
     }
     .overlay {
         position: absolute;
-        left: 50%;
+        left: 100%;
         transform: translateX(-50%);
-        max-width: 50%;
-        width: 100%;
+        height: 100%;
+        width: auto;
         display: flex;
         &.visible-overlay {
             box-shadow: 0px 0px 2000px 2000px rgba(0, 0, 0, .8);
         }
         img {
-            width: 100%;
             height: auto;
         }
     }
