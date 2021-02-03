@@ -1,6 +1,6 @@
 export default class DeviceUtils {
     static isTouchScreen() {
-        var touchDevice = (navigator.maxTouchPoints || 'ontouchstart' in document.documentElement);
+        var touchDevice = (navigator.maxTouchPoints > 0 || 'ontouchstart' in document.documentElement);
         return touchDevice;
     }
 }

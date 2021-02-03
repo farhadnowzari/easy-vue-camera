@@ -152,10 +152,23 @@ export default {
             });
         }
     },
+    mounted() {
+        if(this.startOnMounted) {
+            this.$emit('loading', true);
+            this.start()
+                .then(camera => {
+                    if(camera) {
+                        camera.start();
+                    }
+                })
+                .finally(this.$emit('loading', false));
+        }
+    },
     name: 'fullscreen-view-camera',
     props: {
         mustApprove: Boolean,
         overlayMask: String,
+        startOnMounted: Boolean,
         visibleOverlay: Boolean,
     },
     watch: {

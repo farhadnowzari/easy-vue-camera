@@ -99,9 +99,22 @@ export default {
             this.visibleMask = !this.visibleMask;
         }
     },
+    mounted() {
+        if(this.startOnMounted) {
+            this.$emit('loading', true);
+            this.start()
+                .then(camera => {
+                    if(camera) {
+                        camera.start();
+                    }
+                })
+                .finally(this.$emit('loading', false));
+        }
+    },
     name: 'standard-view-camera',
     props: {
         overlayMask: String,
+        startOnMounted: Boolean,
         visibleOverlay: Boolean
     }
 }

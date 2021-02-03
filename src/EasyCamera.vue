@@ -6,6 +6,7 @@
         @close="$emit('close')"
         :must-approve="mustApprove"
         :overlay-mask="overlayMask"
+        :start-on-mounted="startOnMounted"
         :visible-overlay="visibleOverlay"
         ref="fullscreenCameraRef"
         v-if="viewFullscreen">
@@ -16,6 +17,7 @@
     <standard-view-camera 
         @loading="(loading) => {this.$emit('loading', true)}"
         :overlay-mask="overlayMask"
+        :start-on-mounted="startOnMounted"
         :visible-overlay="visibleOverlay"
         ref="standardCameraRef"
         v-else></standard-view-camera>
@@ -114,21 +116,6 @@ export default {
         toggleMask() {
             if(!this.refStandardCamera) return;
             this.refStandardCamera.toggleMask();
-        }
-    },
-    mounted() {
-        if(this.startOnMounted) {
-            if(this.refFullscreenCamera || this.refStandardCamera) {
-                const cameraComponent = this.refFullscreenCamera ? this.refFullscreenCamera : this.refStandardCamera;
-                this.$emit('loading', true);
-                cameraComponent.start()
-                    .then(camera => {
-                        if(camera) {
-                            camera.start();
-                        }
-                    })
-                    .finally(() => { this.$emit('loading', false) });
-            }
         }
     },
     name: 'easy-camera',
