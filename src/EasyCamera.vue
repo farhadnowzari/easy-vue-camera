@@ -4,7 +4,7 @@
         @loading="(loading) => {this.$emit('loading', loading)}"
         @snap="snap"
         @close="$emit('close')"
-        :fullscreem-z-index="fullscreenZIndex"
+        :fullscreen-z-index="fullscreenZIndex"
         :must-approve="mustApprove"
         :overlay-mask="overlayMask"
         :start-on-mounted="startOnMounted"
