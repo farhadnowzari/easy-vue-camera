@@ -4,6 +4,7 @@
         @loading="(loading) => {this.$emit('loading', loading)}"
         @snap="snap"
         @close="$emit('close')"
+        :fullscreem-z-index="fullscreenZIndex"
         :must-approve="mustApprove"
         :overlay-mask="overlayMask"
         :start-on-mounted="startOnMounted"
@@ -125,6 +126,10 @@ export default {
             default: true  
         },
         fullscreen: Boolean,
+        fullscreenZIndex: {
+            type: Number,
+            default: 17
+        },
         mustApprove: {
             type: Boolean,
             default: false

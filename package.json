@@ -2,7 +2,7 @@
   "author": "Farhad Nowzari",
   "name": "easy-vue-camera",
   "description": "The easiest way possible to have a camera view that supports mobile and looks close the native camera apps on mobile phones",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "dist/EasyCamera.umd.js",
   "module": "dist/EasyCamera.esm.js",
   "unpkg": "dist/EasyCamera.min.js",

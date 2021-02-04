@@ -1,5 +1,5 @@
 <template>
-    <div class="fullscreen-camera">
+    <div :style="{'z-index': fullscreenZIndex}" class="fullscreen-camera">
         <div class="camera-stack">
             <div class="camera-stack-header">
                 <slot name="header"></slot>
@@ -166,6 +166,7 @@ export default {
     },
     name: 'fullscreen-view-camera',
     props: {
+        fullscreenZIndex: Number,
         mustApprove: Boolean,
         overlayMask: String,
         startOnMounted: Boolean,
@@ -195,7 +196,6 @@ export default {
     top: 0;
     width: 100%;
     height: 100%;
-    z-index: 17;
     .camera-stack {
         display: flex;
         flex-direction: column;

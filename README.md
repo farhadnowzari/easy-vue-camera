@@ -48,6 +48,7 @@ After adding the EasyCamera component to your vue components you can use it like
 ### Properties
 * **autoDetectMobile:** This property will let the component to decide if it is loading on a touch screen device or not. `default: true`
 * **fullscreen:** This option will make the component fullscreen. `default: false`
+* **fullscreenZIndex:** This option will allow you to change the `z-index` of the camera control in fullscreen. `default: 17`,
 * **mustApprove:** Setting this option to true will make the component no to immediately send back the tooken picture to your v-model and will show a confirmation button first. **This property is only effective in fullscreen mode, in standard mode you should handle it with your own code.** `default: false`
 * **output:** Here you can set the `output` image that you expect from the component. You can set this to `dataUrl` or `blob`. `default: dataUrl`
 * **overlayMask:** This option will set an overlay mask on the video. You can have a grid so your user can see how you excpect the picture to be taken. It accepts string and the value is the path to your `mask image`.
