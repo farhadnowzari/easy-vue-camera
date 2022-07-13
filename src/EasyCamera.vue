@@ -16,7 +16,7 @@
         </template>
         </fullscreen-view-camera>
     <standard-view-camera 
-        @loading="(loading) => {this.$emit('loading', true)}"
+        @loading="(loading) => {this.$emit('loading', loading)}"
         :overlay-mask="overlayMask"
         :start-on-mounted="startOnMounted"
         :visible-overlay="visibleOverlay"
